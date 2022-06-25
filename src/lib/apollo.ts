@@ -1,6 +1,10 @@
 import { ApolloClient, InMemoryCache } from "@apollo/client"
+import { BreakingChangeType } from "graphql"
 
 export const client = new ApolloClient({
-  uri: "https://api-sa-east-1.graphcms.com/v2/cl4ng6jrq03l401z02h9u6l5z/master",
+  uri: import.meta.env.VITE_API_URL,
+  headers: {
+    "Authorization": `Bearer ${import.meta.env.VITE_API_ACCESS_TOKEN}`
+  },
   cache: new InMemoryCache()
 })
